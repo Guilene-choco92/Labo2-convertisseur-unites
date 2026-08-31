@@ -111,7 +111,13 @@ export default function App() {
       <Container maxWidth="md">
         <Stack spacing={4}>
           <Box component="header" textAlign="center">
-            <Typography component="h1" variant="h3" fontWeight={800} gutterBottom>
+            <Typography
+              component="h1"
+              variant="h3"
+              fontWeight={800}
+              gutterBottom
+              className="animated-title"
+            >
               Convertisseur d'unités
             </Typography>
             <Typography color="text.secondary">
