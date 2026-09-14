@@ -48,4 +48,15 @@ router.post('/kilograms-to-pounds', validateValue, (request, response) => {
   });
 });
 
+router.post('/celsius-to-fahrenheit', validateValue, (request, response) => {
+  const result = (request.conversionValue * 9) / 5 + 32;
+
+  response.json({
+    input: request.conversionValue,
+    inputUnit: 'degrés Celsius',
+    result,
+    resultUnit: 'degrés Fahrenheit'
+  });
+});
+
 export default router;

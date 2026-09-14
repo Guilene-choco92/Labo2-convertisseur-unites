@@ -36,6 +36,13 @@ const converters = [
     label: 'Valeur en kilogrammes',
     route: '/api/convert/kilograms-to-pounds',
     outputUnit: 'livres'
+  },
+  {
+    id: 'celsius',
+    title: 'Celsius vers Fahrenheit',
+    label: 'Valeur en degrés Celsius',
+    route: '/api/convert/celsius-to-fahrenheit',
+    outputUnit: 'degrés Fahrenheit'
   }
 ];
 

@@ -32,6 +32,16 @@ test('convertit les kilogrammes en livres', async () => {
   assert.equal(response.body.resultUnit, 'livres');
 });
 
+test('convertit les degrés Celsius en degrés Fahrenheit', async () => {
+  const response = await request(app)
+    .post('/api/convert/celsius-to-fahrenheit')
+    .send({ value: 20 });
+
+  assert.equal(response.status, 200);
+  assert.equal(response.body.result, 68);
+  assert.equal(response.body.resultUnit, 'degrés Fahrenheit');
+});
+
 test('rejette une valeur non numérique', async () => {
   const response = await request(app)
     .post('/api/convert/feet-to-meters')
