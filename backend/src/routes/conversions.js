@@ -38,3 +38,13 @@ router.post('/liters-to-gallons', validateValue, (request, response) => {
 });
 
 export default router;
+router.post('/celsius-to-fahrenheit', validateValue, (request, response) => {
+    const result = (request.conversionValue * 9) / 5 + 32;
+
+    response.json({
+      input: request.conversionValue,
+      inputUnit: 'degrés Celsius',
+      result,
+      resultUnit: 'degrés Fahrenheit'
+    });
+  });
