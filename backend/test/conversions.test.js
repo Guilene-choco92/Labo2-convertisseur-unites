@@ -22,15 +22,25 @@ test('convertit les litres en gallons américains', async () => {
   assert.equal(response.body.result, 0.2641720524);
 });
 
-test('convertit les degrés Celsius en degrés Fahrenheit', async () => {
-    const response = await request(app)
-      .post('/api/convert/celsius-to-fahrenheit')
-      .send({ value: 20 });
+test('convertit les kilogrammes en livres', async () => {
+  const response = await request(app)
+    .post('/api/convert/kilograms-to-pounds')
+    .send({ value: 1 });
 
-    assert.equal(response.status, 200);
-    assert.equal(response.body.result, 68);
-    assert.equal(response.body.resultUnit, 'degrés Fahrenheit');
-  });
+  assert.equal(response.status, 200);
+  assert.equal(response.body.result, 2.2046226218);
+  assert.equal(response.body.resultUnit, 'livres');
+});
+
+test('convertit les degrés Celsius en degrés Fahrenheit', async () => {
+  const response = await request(app)
+    .post('/api/convert/celsius-to-fahrenheit')
+    .send({ value: 20 });
+
+  assert.equal(response.status, 200);
+  assert.equal(response.body.result, 68);
+  assert.equal(response.body.resultUnit, 'degrés Fahrenheit');
+});
 
 test('rejette une valeur non numérique', async () => {
   const response = await request(app)
@@ -40,4 +50,3 @@ test('rejette une valeur non numérique', async () => {
   assert.equal(response.status, 400);
   assert.match(response.body.error, /nombre valide/);
 });
-
