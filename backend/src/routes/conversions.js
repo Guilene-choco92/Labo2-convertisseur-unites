@@ -37,4 +37,15 @@ router.post('/liters-to-gallons', validateValue, (request, response) => {
   });
 });
 
+router.post('/kilograms-to-pounds', validateValue, (request, response) => {
+  const result = request.conversionValue * 2.2046226218;
+
+  response.json({
+    input: request.conversionValue,
+    inputUnit: 'kilogrammes',
+    result,
+    resultUnit: 'livres'
+  });
+});
+
 export default router;
