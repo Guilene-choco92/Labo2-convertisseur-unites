@@ -29,6 +29,13 @@ const converters = [
     label: 'Valeur en litres',
     route: '/api/convert/liters-to-gallons',
     outputUnit: 'gallons américains'
+  },
+  {
+    id: 'kilograms',
+    title: 'Kilogrammes vers livres',
+    label: 'Valeur en kilogrammes',
+    route: '/api/convert/kilograms-to-pounds',
+    outputUnit: 'livres'
   }
 ];
 
@@ -126,7 +133,7 @@ export default function App() {
           </Box>
           <Grid container spacing={3}>
             {converters.map((converter) => (
-              <Grid key={converter.id} size={{ xs: 12, md: 6 }}>
+              <Grid key={converter.id} size={{ xs: 12, md: 4 }}>
                 <ConverterCard converter={converter} />
               </Grid>
             ))}

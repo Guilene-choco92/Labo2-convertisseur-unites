@@ -22,6 +22,16 @@ test('convertit les litres en gallons américains', async () => {
   assert.equal(response.body.result, 0.2641720524);
 });
 
+test('convertit les kilogrammes en livres', async () => {
+  const response = await request(app)
+    .post('/api/convert/kilograms-to-pounds')
+    .send({ value: 1 });
+
+  assert.equal(response.status, 200);
+  assert.equal(response.body.result, 2.2046226218);
+  assert.equal(response.body.resultUnit, 'livres');
+});
+
 test('rejette une valeur non numérique', async () => {
   const response = await request(app)
     .post('/api/convert/feet-to-meters')
